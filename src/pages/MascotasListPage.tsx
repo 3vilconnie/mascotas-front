@@ -60,7 +60,6 @@ export const MascotasListPage: React.FC = () => {
                     {mascotas.map((mascota) => (
                         <Col key={mascota.id}>
                         <Card className="h-100 shadow-sm">
-                            {/* Se renderiza la imagen real de la mascota[cite: 1] */}
                             <Card.Img 
                             variant="top" 
                             src={mascota.imagen} 

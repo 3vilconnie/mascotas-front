@@ -1,10 +1,27 @@
-import { useState } from 'react'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+import { Navbar } from './components/Navbar';
+import { MascotasListPage } from './pages/MascotasListPage';
+import { MascotaDetailPage } from './pages/MascotaDetailPage';
+import { MascotaFormPage } from './pages/MascotaFormPage';
 
-function App() {
+
+export const App: React.FC = () => {
 
   return (
-    <h1>hola</h1>
-  )
-}
+    <Router>
+      <Navbar />
+      <Container className="my-4">
+        <Routes>
+          <Route path="/" element={<MascotasListPage />} />
+          <Route path="/mascotas/:id" element={<MascotaDetailPage />} />
+          <Route path="/crear" element={<MascotaFormPage />} />
+          <Route path="*" element={<h2 className="text-center text-danger my-5">404 - Página no encontrada</h2>} />
+        </Routes>
+      </Container>
+    </Router>
+  );
+};
 
-export default App
+export default App;

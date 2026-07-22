@@ -31,3 +31,16 @@ export interface Mascota{
     fecha_actualizacion : string;
     comentarios?: Comentario[];
 }
+
+export interface ApiErrorResponse{
+    nombre?: string[];
+    descripcion?: string[];
+    imagen?: string[];
+    edad?: string[];
+    estado?: string[];
+    tipo_animal?: string[];
+    sexo?: string[];
+    tamano?: string[];
+    detail?: string;
+    general?: string;
+}

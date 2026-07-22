@@ -30,6 +30,7 @@ export interface Mascota{
     fecha_creacion : string;
     fecha_actualizacion : string;
     comentarios?: Comentario[];
+    imagen?: string;
 }
 
 export interface ApiErrorResponse{

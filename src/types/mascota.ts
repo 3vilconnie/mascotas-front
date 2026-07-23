@@ -14,6 +14,7 @@ export interface Comentario{
     id : number;
     mascota : number;
     autor : string;
+    contenido : string;
     fecha_creacion : string;
 }
 

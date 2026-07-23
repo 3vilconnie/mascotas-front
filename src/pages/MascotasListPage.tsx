@@ -75,6 +75,7 @@ export const MascotasListPage: React.FC = () => {
                                 {mascota.descripcion}
                             </Card.Text>
                             </Card.Body>
+                            
                             <Card.Footer className="bg-transparent border-top-0 pb-3">
                             <Button 
                                 variant="outline-primary" 

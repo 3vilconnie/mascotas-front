@@ -1,0 +1,47 @@
+[33mcommit dc1e90c192145b76ca4102146e87553d29ce36d9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Constanza Ramos <esmicorreotodojunto@gmail.com>
+Date:   Wed Jul 22 15:36:10 2026 -0400
+
+    feat: implementacion de get en MascotaListPage, manejo de carga y errores.
+
+[33mcommit 286f3fd258ec695683e0615eb2fd9f9f3ea4e8b8[m
+Author: Constanza Ramos <esmicorreotodojunto@gmail.com>
+Date:   Wed Jul 22 15:35:05 2026 -0400
+
+    feat: implementacion de get en MascotaListPage, manejo de carga y errores.
+
+[33mcommit 3e9118ded0a006fdc070b6bc15e367e1a682e318[m
+Author: Constanza Ramos <esmicorreotodojunto@gmail.com>
+Date:   Wed Jul 22 14:55:14 2026 -0400
+
+    feat: creacion de vistas y formulario de registro
+
+[33mcommit 614b4995dc52f0e15ffce0c24472d2957905bf68[m
+Author: Constanza Ramos <esmicorreotodojunto@gmail.com>
+Date:   Wed Jul 22 11:59:18 2026 -0400
+
+    chore: implementacion y configuracion de react-bootstrap
+
+[33mcommit 21b99f0604572cd4125a98ce6650217875fc916f[m
+Author: Constanza Ramos <esmicorreotodojunto@gmail.com>
+Date:   Wed Jul 22 11:51:44 2026 -0400
+
+    feat: creacion de interfaces Mascota, Comentio y choices
+
+[33mcommit ec30b15a8ee7a1a8beff62ef327a3e009aa35c1b[m
+Author: Constanza Ramos <esmicorreotodojunto@gmail.com>
+Date:   Wed Jul 22 11:50:46 2026 -0400
+
+    feat: creacion de interfaces Mascota, Comentio y choices
+
+[33mcommit 59de53278df618fdf26dea7f1422d76b7af8ee97[m
+Author: Constanza Ramos <esmicorreotodojunto@gmail.com>
+Date:   Wed Jul 22 11:33:12 2026 -0400
+
+    chore: configuracion de axios
+
+[33mcommit 8c564a10dad8b60539de7ee4dd4d068fe4317294[m
+Author: Constanza Ramos <esmicorreotodojunto@gmail.com>
+Date:   Wed Jul 22 10:26:37 2026 -0400
+
+    chore: inicializacion de repositorio y proyecto con vite y react

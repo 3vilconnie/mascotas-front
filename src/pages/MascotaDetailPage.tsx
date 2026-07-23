@@ -15,6 +15,13 @@ export const MascotaDetailPage: React.FC = () => {
     const [contenido, setContenido] = useState("");
     const [comentarioLoading, setComentarioLoading] = useState(false);
 
+    let status: Record<string, string> = {
+        perdida : "danger",
+        encontrada : "success",
+        adoptada: "secondary",
+        en_adopcion: "info" 
+    };
+
     const fetchMascota = async () => {
         try{
             setLoading(true);
@@ -24,7 +31,7 @@ export const MascotaDetailPage: React.FC = () => {
         }catch(error: any){
             console.error(error);
             const errorMsg = error.response?.data?.detail || error.message || 'error desconocido.';
-
+            setError(errorMsg);
         }finally{
             setLoading(false);
         }
@@ -88,7 +95,7 @@ export const MascotaDetailPage: React.FC = () => {
                     <Card.Body>
                     <div className="d-flex justify-content-between align-items-center mb-2">
                         <Card.Title className="h3 mb-0">Mascota #{id}</Card.Title>
-                        <Badge bg="warning" text="dark">Perdida</Badge>
+                        <Badge bg={ status[mascota.estado] } text="light">{mascota.estado}</Badge>
                     </div>
                     <Card.Text>
                         {mascota.descripcion}

@@ -89,7 +89,7 @@ export const MascotaFormPage: React.FC = () => {
         </Card.Header>
         <Card.Body>
           {apiErrors?.general && <Alert variant="danger">{apiErrors.general}</Alert>}
-          <Form onSubmit={handleSubmit}>
+          <Form noValidate onSubmit={handleSubmit}>
             <Row className="g-3">
               <Col md={6}>
                 <Form.Group controlId="nombre">

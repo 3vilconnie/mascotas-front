@@ -48,7 +48,7 @@ export const MascotaFormPage: React.FC = () => {
     if (imagen) formData.append('imagen', imagen);
     formData.append('estado', estado);
     formData.append('tipo_animal', tipoAnimal);
-    if (edad !== '') formData.append('edad', edad.toString());
+    formData.append('edad', edad.toString());
     formData.append('raza', raza);
     formData.append('sexo', sexo);
     formData.append('tamano', tamano);

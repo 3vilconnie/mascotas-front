@@ -28,6 +28,18 @@ export const MascotasListPage: React.FC = () => {
         fetchMascotas();
     }, []);
 
+    const handleDelete = async (id:any) => {
+        try{
+            setLoading(true)
+            setError(null)
+            const response = await api.delete(`/mascotas/${id}/`)
+            console.log(response);
+        } catch (e:any){
+            const errorMsg = e.response?.data?.detail || "error al eliminar mascota."
+            alert(errorMsg)
+        } finally{fetchMascotas()}
+    }
+
     return (
         <Container className="py-2">
             <div className="d-flex justify-content-between align-items-center mb-4">
@@ -77,14 +89,19 @@ export const MascotasListPage: React.FC = () => {
                             </Card.Body>
                             
                             <Card.Footer className="bg-transparent border-top-0 pb-3">
-                            <Button 
-                                variant="outline-primary" 
-                                as={Link as any} 
-                                to={`/mascotas/${mascota.id}`} 
-                                className="w-100"
-                            >
-                                Ver Detalle
-                            </Button>
+                                <div className='d-flex align-items-center gap-2'>        
+                                    <Button 
+                                        variant="outline-primary" 
+                                        as={Link as any} 
+                                        to={`/mascotas/${mascota.id}`} 
+                                        className="w-100"
+                                    >
+                                        Ver Detalle
+                                    </Button>
+                                    <Button variant="outline-danger" onClick={e=>handleDelete(mascota.id)}>
+                                        Borrar
+                                    </Button>
+                                </div>
                             </Card.Footer>
                         </Card>
                         </Col>

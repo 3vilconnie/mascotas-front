@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Container, Row, Col, Card, Badge, Form, ListGroup, Button, Spinner, Alert } from 'react-bootstrap';
 import api from "../services/api";
-import type { Mascota } from "../types/mascota";
+import type { Mascota,ChoicesResponse } from "../types/mascota";
 
 export const MascotaDetailPage: React.FC = () => {
     const { id } = useParams<{ id : string }>();
@@ -15,12 +15,27 @@ export const MascotaDetailPage: React.FC = () => {
     const [contenido, setContenido] = useState("");
     const [comentarioLoading, setComentarioLoading] = useState(false);
 
+    const [choices, setChoices] = useState<ChoicesResponse | null>(null);
+
     let status: Record<string, string> = {
         perdida : "danger",
         encontrada : "success",
         adoptada: "secondary",
         en_adopcion: "info" 
     };
+
+    const fetchChoices = async () =>{
+        try {
+        const response = await api.get("/choices/");
+        setChoices(response.data);
+        } catch (error:any) {
+        console.error(error);
+        }
+    };
+
+    useEffect(()=>{
+        fetchChoices();
+    }, []);
 
     const fetchMascota = async () => {
         try{
@@ -61,6 +76,19 @@ export const MascotaDetailPage: React.FC = () => {
         }
     };
 
+    const handleCambioStatus= async (nuevoEstado:string) => {
+        try {
+            setLoading(true)
+            setError(null)
+            const response = await api.patch(`/mascotas/${id}/`, {"estado": nuevoEstado})
+            console.log(response)
+        } catch(e: any){
+            const errorMsg = e.response?.data?.detail || "Error al cambiar el estado de la mascota."
+            alert(errorMsg)
+        } finally {fetchMascota()
+        }
+    }
+
     if (loading) {
             return (
             <Container className="py-5 text-center">
@@ -95,8 +123,16 @@ export const MascotaDetailPage: React.FC = () => {
                     <Card.Body>
                     <div className="d-flex justify-content-between align-items-center mb-2">
                         <Card.Title className="h3 mb-0">Mascota #{id}</Card.Title>
+                        <div className='d-flex align-items-center gap-2'>
                         <Badge bg={ status[mascota.estado] } text="light">{mascota.estado}</Badge>
+                        <Form.Select size="sm" value={mascota.estado} onChange={(e)=>handleCambioStatus(e.target.value)} aria-label='Cambiar estado de mascota'>
+                            {choices?.estado.map(opt=>(
+                                <option key={opt.value} value={opt.value}>{opt.label}</option>
+                            ))} 
+                        </Form.Select>
+                        </div>
                     </div>
+
                     <Card.Text>
                         {mascota.descripcion}
                     </Card.Text>

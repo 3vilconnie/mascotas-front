@@ -1,3 +1,8 @@
+Sebastian usó Gemini para el CSS con bootstrap y checkeo de errores, se validaba de forma manual.
+Constanza usó Gemini para los bloques Card de bootstrap.
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
